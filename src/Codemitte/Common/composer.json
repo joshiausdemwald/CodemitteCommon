@@ -1,0 +1,20 @@
+{
+    "name":        "codemitte/common",
+    "type":        "library",
+    "description": "Common helpers and utilities",
+    "keywords":    ["common", "utility", "helper"],
+    "homepage":    "https://github.com/joshiausdemwald/CodemitteCommon",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "Johannes Heinen",
+            "homepage": "https://github.com/joshiausdemwald"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Codemitte\\Common": ""
+        }
+    },
+    "target-dir": "Codemitte/Common"
+}
