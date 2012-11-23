@@ -53,20 +53,6 @@ interface MapInterface extends IteratorAggregate, Serializable, ArrayAccess
     public function put($key, $value);
 
     /**
-     * __call() magic.
-     * Used to map getXY() and setXY() non-existent methods
-     * to call get() and set().
-     *
-     * @abstract
-     *
-     * @param $name
-     * @param array $args
-     *
-     * @return mixed.
-     */
-    public function __call($name, array $args = array());
-
-    /**
      * @abstract
      *
      * @param array|MapInterface $values
