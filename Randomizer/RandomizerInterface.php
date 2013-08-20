@@ -9,9 +9,10 @@ interface RandomizerInterface
      *
      * @abstract
      * @param bool $encode_base_64
+     * @param int $length
      * @return mixed
      */
-    public function getUniqueId($encode_base_64 = true);
+    public function getUniqueId($encode_base_64 = true, $length = 23);
 
     /**
      * Creates a random code consisting of digits only

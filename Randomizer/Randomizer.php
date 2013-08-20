@@ -1,18 +1,36 @@
 <?php
 namespace Codemitte\Common\Randomizer;
 
+use
+    Symfony\Component\Security\Core\Util\SecureRandomInterface
+;
+
 class Randomizer implements RandomizerInterface
 {
+    /**
+     * @var SecureRandomInterface $secureRandom
+     */
+    private $secureRandom;
+
+    /**
+     * @param \Symfony\Component\Security\Core\Util\SecureRandomInterface $secureRandom
+     */
+    public function __construct(SecureRandomInterface $secureRandom)
+    {
+        $this->secureRandom = $secureRandom;
+    }
+
     /**
      * Returns a generated, unique Id that is encoded
      * base64, if argument isset to true.
      *
      * @param bool $encode_base_64
+     * @param int $length
      * @return mixed
      */
-    public function getUniqueId($encode_base_64 = true)
+    public function getUniqueId($encode_base_64 = true, $length= 23)
     {
-        $id = uniqid(mt_rand(), true);
+        $id = $this->secureRandom->nextBytes($length);
 
         return $encode_base_64 ? base64_encode($id) : $id;
     }
@@ -43,6 +61,4 @@ class Randomizer implements RandomizerInterface
         }
         return $pin;
     }
-
-
 }
